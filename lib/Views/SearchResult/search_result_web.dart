@@ -19,7 +19,7 @@ class SearchResultWeb extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-           CustomAppbar(),
+            CustomAppbar(),
             Padding(
               padding: EdgeInsets.only(top: 81.h),
               child: Container(
@@ -328,7 +328,7 @@ class SearchResultWeb extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(top: 2335.h),
-              child: WidgetsAll.footer(),
+              child: WidgetsAll.footer(context),
             )
           ],
         ),

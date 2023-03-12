@@ -81,13 +81,13 @@ class DeliveryWeb extends StatelessWidget {
                   SizedBox(
                     height: 96.h,
                   ),
-                 WidgetsAll.downloadContainer()
+                  WidgetsAll.downloadContainer()
                 ],
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(top: 1464.h),
-              child: WidgetsAll.footer(),
+              padding: EdgeInsets.only(top: 1464.h),
+              child: WidgetsAll.footer(context),
             )
           ],
         ),

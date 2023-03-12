@@ -53,7 +53,7 @@ class CategoryWeb extends StatelessWidget {
                     height: 16.h,
                   ),
                   Text(
-                    "Search for "+title+" recommended by real users!",
+                    "Search for " + title + " recommended by real users!",
                     style: TextStyle(
                         color: AppColors.textwhiteColor,
                         fontSize: 20.sp,
@@ -71,7 +71,8 @@ class CategoryWeb extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Get.to(()=>SearchResult(image: image, title: title));
+                          Get.to(
+                              () => SearchResult(image: image, title: title));
                         },
                         child: Container(
                           height: 50.h,
@@ -122,7 +123,8 @@ class CategoryWeb extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(15.r),
                                   color: AppColors.containerBgColor),
                               child: Padding(
-                                padding:  EdgeInsets.symmetric(vertical: 12.h,horizontal: 12.w),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 12.h, horizontal: 12.w),
                                 child: Text(
                                   "Most popular search result 1",
                                   style: TextStyle(
@@ -140,8 +142,8 @@ class CategoryWeb extends StatelessWidget {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(top: 954.h),
-              child: WidgetsAll.footer(),
+              padding: EdgeInsets.only(top: 954.h),
+              child: WidgetsAll.footer(context),
             )
           ],
         ),

@@ -602,10 +602,14 @@ class ProductDetailsWeb extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 105.h,),
+            SizedBox(
+              height: 105.h,
+            ),
             Center(child: WidgetsAll.downloadContainer()),
-            SizedBox(height: 184.h,),
-            WidgetsAll.footer()
+            SizedBox(
+              height: 184.h,
+            ),
+            WidgetsAll.footer(context)
           ],
         ),
       ),

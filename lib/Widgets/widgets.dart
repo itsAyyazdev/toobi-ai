@@ -1,295 +1,591 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:toobai_project_web_app/Views/category_page/category.dart';
 import 'package:toobai_project_web_app/Views/delivery/delivery.dart';
 import 'package:toobai_project_web_app/Views/download/DownloadWeb.dart';
+import 'package:toobai_project_web_app/responsive.dart';
 
 import '../Utils/Colors/colors.dart';
 import '../Utils/image_in_App/images.dart';
 
 class WidgetsAll {
-  static Widget footer() {
+  static Widget footer(BuildContext context) {
     return Container(
-        height: 389.h,
+        // height: 389.h,
         width: 1440.w,
         color: AppColors.appBarBgColor,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 200.w),
-          child: Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 64.h,
-                  ),
-                  RichText(
-                      text: TextSpan(children: <TextSpan>[
-                    TextSpan(
-                      text: "Toobi",
-                      style: TextStyle(
-                          color: AppColors.textwhiteColor,
-                          fontSize: 30.sp,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: Assets.poppinsRegular),
-                    ),
-                    TextSpan(
-                      text: "AI",
-                      style: TextStyle(
-                          color: AppColors.textblueColor,
-                          fontSize: 30.sp,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: Assets.poppinsRegular),
-                    )
-                  ])),
-                  SizedBox(
-                    height: 24.h,
-                  ),
-                  Text(
-                    "HELLO@TOOBI.AI",
-                    style: TextStyle(
-                        color: AppColors.textwhiteColor,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: Assets.poppinsRegular),
-                  ),
-                  SizedBox(
-                    height: 24.h,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: 44.h,
-                        width: 44.h,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 1, color: AppColors.borderblueColor),
-                          borderRadius: BorderRadius.circular(25.r),
-                        ),
-                        child: Center(
-                          child: Image.asset(
-                            Assets.facebook,
-                            height: 23.h,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      Container(
-                        height: 44.h,
-                        width: 44.h,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 1, color: AppColors.borderblueColor),
-                          borderRadius: BorderRadius.circular(25.r),
-                        ),
-                        child: Center(
-                          child: Image.asset(
-                            Assets.twitter,
-                            height: 23.h,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      Container(
-                        height: 44.h,
-                        width: 44.h,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 1, color: AppColors.borderblueColor),
-                          borderRadius: BorderRadius.circular(25.r),
-                        ),
-                        child: Center(
-                          child: Image.asset(
-                            Assets.insta,
-                            height: 23.h,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 24.h,
-                  ),
-                  Text(
-                    "DOWNLOAD THE MOBILE APP",
-                    style: TextStyle(
-                        color: AppColors.textgreyColor,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: Assets.poppinsRegular),
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  SizedBox(
-                    width: 350.w,
-                    child: Row(
+          child: Responsive.isMobile(context)
+              ? Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 61.h,
-                          width: 148.5.w,
-                          decoration: BoxDecoration(
-                              color: AppColors.appBarBgColor,
-                              border: Border.all(
-                                  width: 1, color: AppColors.bordergreyColor),
-                              borderRadius: BorderRadius.circular(15.r)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.w),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                    height: 28.h,
-                                    width: 25.w,
-                                    child: Image.asset(Assets.playstoreLogo)),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Text(
-                                      "GET IT ON",
-                                      style: TextStyle(
-                                          color: AppColors.textwhiteColor,
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: Assets.poppinsRegular),
-                                    ),
-                                    Text(
-                                      "Google PLay",
-                                      style: TextStyle(
-                                          color: AppColors.textwhiteColor,
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: Assets.poppinsRegular),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
+                        SizedBox(
+                          height: 64.h,
+                        ),
+                        RichText(
+                            text: TextSpan(children: <TextSpan>[
+                          TextSpan(
+                            text: "Toobi",
+                            style: TextStyle(
+                                color: AppColors.textwhiteColor,
+                                fontSize: 30.sp,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: Assets.poppinsRegular),
                           ),
+                          TextSpan(
+                            text: "AI",
+                            style: TextStyle(
+                                color: AppColors.textblueColor,
+                                fontSize: 30.sp,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: Assets.poppinsRegular),
+                          )
+                        ])),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Text(
+                          "HELLO@TOOBI.AI",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
                         ),
                         SizedBox(
-                          width: 16.w,
+                          height: 24.h,
                         ),
-                        Container(
-                          height: 61.h,
-                          width: 148.5.w,
-                          decoration: BoxDecoration(
-                              color: AppColors.appBarBgColor,
-                              border: Border.all(
-                                  width: 1, color: AppColors.bordergreyColor),
-                              borderRadius: BorderRadius.circular(15.r)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.w),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                    height: 28.h,
-                                    width: 25.w,
-                                    child: Image.asset(Assets.appleLogo)),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Text(
-                                      "DOWNLOAD ON THE",
-                                      style: TextStyle(
-                                          color: AppColors.textwhiteColor,
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: Assets.poppinsRegular),
-                                    ),
-                                    Text(
-                                      "App Store",
-                                      style: TextStyle(
-                                          color: AppColors.textwhiteColor,
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: Assets.poppinsRegular),
-                                    ),
-                                  ],
-                                )
-                              ],
+                        Row(
+                          children: [
+                            Container(
+                              height: 44.h,
+                              width: 44.h,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1, color: AppColors.borderblueColor),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  Assets.facebook,
+                                  height: 23.h,
+                                ),
+                              ),
                             ),
+                            SizedBox(
+                              width: 16.w,
+                            ),
+                            Container(
+                              height: 44.h,
+                              width: 44.h,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1, color: AppColors.borderblueColor),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  Assets.twitter,
+                                  height: 23.h,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 16.w,
+                            ),
+                            Container(
+                              height: 44.h,
+                              width: 44.h,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1, color: AppColors.borderblueColor),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  Assets.insta,
+                                  height: 23.h,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Text(
+                          "DOWNLOAD THE MOBILE APP",
+                          style: TextStyle(
+                              color: AppColors.textgreyColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        SizedBox(
+                          width: 350.w,
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 61.h,
+                                width: 148.5.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.appBarBgColor,
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColors.bordergreyColor),
+                                    borderRadius: BorderRadius.circular(15.r)),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 10.w),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                          height: 28.h,
+                                          width: 25.w,
+                                          child: Image.asset(
+                                              Assets.playstoreLogo)),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 5.h,
+                                          ),
+                                          Text(
+                                            "GET IT ON",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 10.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                          Text(
+                                            "Google PLay",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 16.w,
+                              ),
+                              Container(
+                                height: 61.h,
+                                width: 148.5.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.appBarBgColor,
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColors.bordergreyColor),
+                                    borderRadius: BorderRadius.circular(15.r)),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 10.w),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                          height: 28.h,
+                                          width: 25.w,
+                                          child: Image.asset(Assets.appleLogo)),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 5.h,
+                                          ),
+                                          Text(
+                                            "DOWNLOAD ON THE",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 10.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                          Text(
+                                            "App Store",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         )
                       ],
                     ),
-                  )
-                ],
-              ),
-              Spacer(),
-              Column(
-                children: [
-                  SizedBox(
-                    height: 85.h,
-                  ),
-                  Text(
-                    "Pages",
-                    style: TextStyle(
-                        color: AppColors.textgreyColor,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: Assets.poppinsRegular),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Text(
-                    "ANIMES",
-                    style: TextStyle(
-                        color: AppColors.textwhiteColor,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: Assets.poppinsRegular),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Text(
-                    "MOVIES",
-                    style: TextStyle(
-                        color: AppColors.textwhiteColor,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: Assets.poppinsRegular),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Text(
-                    "BOOKS",
-                    style: TextStyle(
-                        color: AppColors.textwhiteColor,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: Assets.poppinsRegular),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Text(
-                    "SHOPPING PRODUCTS",
-                    style: TextStyle(
-                        color: AppColors.textwhiteColor,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: Assets.poppinsRegular),
-                  ),
-                ],
-              )
-            ],
-          ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 85.h,
+                        ),
+                        Text(
+                          "Pages",
+                          style: TextStyle(
+                              color: AppColors.textgreyColor,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "ANIMES",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "MOVIES",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "BOOKS",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "SHOPPING PRODUCTS",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              : Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 64.h,
+                        ),
+                        RichText(
+                            text: TextSpan(children: <TextSpan>[
+                          TextSpan(
+                            text: "Toobi",
+                            style: TextStyle(
+                                color: AppColors.textwhiteColor,
+                                fontSize: 30.sp,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: Assets.poppinsRegular),
+                          ),
+                          TextSpan(
+                            text: "AI",
+                            style: TextStyle(
+                                color: AppColors.textblueColor,
+                                fontSize: 30.sp,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: Assets.poppinsRegular),
+                          )
+                        ])),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Text(
+                          "HELLO@TOOBI.AI",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              height: 44.h,
+                              width: 44.h,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1, color: AppColors.borderblueColor),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  Assets.facebook,
+                                  height: 23.h,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 16.w,
+                            ),
+                            Container(
+                              height: 44.h,
+                              width: 44.h,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1, color: AppColors.borderblueColor),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  Assets.twitter,
+                                  height: 23.h,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 16.w,
+                            ),
+                            Container(
+                              height: 44.h,
+                              width: 44.h,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1, color: AppColors.borderblueColor),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  Assets.insta,
+                                  height: 23.h,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Text(
+                          "DOWNLOAD THE MOBILE APP",
+                          style: TextStyle(
+                              color: AppColors.textgreyColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        SizedBox(
+                          width: 350.w,
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 61.h,
+                                width: 148.5.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.appBarBgColor,
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColors.bordergreyColor),
+                                    borderRadius: BorderRadius.circular(15.r)),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 10.w),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                          height: 28.h,
+                                          width: 25.w,
+                                          child: Image.asset(
+                                              Assets.playstoreLogo)),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 5.h,
+                                          ),
+                                          Text(
+                                            "GET IT ON",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 10.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                          Text(
+                                            "Google PLay",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 16.w,
+                              ),
+                              Container(
+                                height: 61.h,
+                                width: 148.5.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.appBarBgColor,
+                                    border: Border.all(
+                                        width: 1,
+                                        color: AppColors.bordergreyColor),
+                                    borderRadius: BorderRadius.circular(15.r)),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 10.w),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                          height: 28.h,
+                                          width: 25.w,
+                                          child: Image.asset(Assets.appleLogo)),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 5.h,
+                                          ),
+                                          Text(
+                                            "DOWNLOAD ON THE",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 10.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                          Text(
+                                            "App Store",
+                                            style: TextStyle(
+                                                color: AppColors.textwhiteColor,
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    Assets.poppinsRegular),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    Spacer(),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 85.h,
+                        ),
+                        Text(
+                          "Pages",
+                          style: TextStyle(
+                              color: AppColors.textgreyColor,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "ANIMES",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "MOVIES",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "BOOKS",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "SHOPPING PRODUCTS",
+                          style: TextStyle(
+                              color: AppColors.textwhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Assets.poppinsRegular),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
         ));
   }
 
