@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toobai_project_web_app/Utils/Colors/colors.dart';
-import 'package:toobai_project_web_app/Views/search/search.dart';
 
 import '../../Utils/image_in_App/images.dart';
 
@@ -52,7 +51,6 @@ class CategoryComponent {
               width: 345.w,
               child: TextFormField(
                 onTap: () {
-                 Get.to(()=>Search(title: title));
                 },
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(

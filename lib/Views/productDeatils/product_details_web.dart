@@ -19,7 +19,7 @@ class ProductDetailsWeb extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            WidgetsAll.CustomtopNavigationBAr(),
+            CustomAppbar(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 288.w),
               child: Column(

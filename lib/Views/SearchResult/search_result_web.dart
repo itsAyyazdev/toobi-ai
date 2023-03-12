@@ -19,7 +19,7 @@ class SearchResultWeb extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            WidgetsAll.CustomtopNavigationBAr(),
+           CustomAppbar(),
             Padding(
               padding: EdgeInsets.only(top: 81.h),
               child: Container(

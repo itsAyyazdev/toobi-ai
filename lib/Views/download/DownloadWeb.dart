@@ -12,7 +12,7 @@ class DownloadWeb extends StatelessWidget{
       backgroundColor: AppColors.appBackground,
       body:Column(
         children: [
-          WidgetsAll.CustomtopNavigationBAr(),
+          CustomAppbar(),
           SizedBox(height: 105.h,),
            Padding(
              padding:  EdgeInsets.symmetric(horizontal: 200.w),

@@ -14,7 +14,7 @@ class DeliveryWeb extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            WidgetsAll.CustomtopNavigationBAr(),
+            CustomAppbar(),
             Padding(
               padding: EdgeInsets.only(top: 82.h),
               child: Container(

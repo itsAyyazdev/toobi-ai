@@ -5,13 +5,14 @@ import 'package:get/get.dart';
 import 'package:toobai_project_web_app/Utils/Colors/colors.dart';
 import 'package:toobai_project_web_app/Utils/image_in_App/images.dart';
 import 'package:toobai_project_web_app/Views/category_page/category.dart';
+import 'package:toobai_project_web_app/Views/category_page/category_web_mbile_view.dart';
 
 class DeliveryComponent{
 
   static Widget CustomContainer({required String image, required String title}) {
     return GestureDetector(
       onTap: (){
-        Get.to(()=>Categories(title: title,image:image,));
+        Get.to(()=>CategoryWebMbileView());
       },
       child: Container(
         height:96.h ,
